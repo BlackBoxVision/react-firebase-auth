@@ -18,6 +18,15 @@ npm i @blackbox-vision/react-firebase-auth
 yarn add @blackbox-vision/react-firebase-auth
 ```
 
+### Peer dependencies
+
+This package relies on `react` and `firebase` as `peer-dependecies`:
+
+```bash
+// or major versions of them
+npm i react@16.4.0 firebase@4.0.0
+```
+
 ## Use case
 
 Need to render Firebase Auth, but also need to load an specific translated version.
