@@ -1,1 +1,1 @@
-export { default as FirebaseAuth } from "./components/FirebaseAuth";
+export { default as FirebaseAuth } from './components/FirebaseAuth';

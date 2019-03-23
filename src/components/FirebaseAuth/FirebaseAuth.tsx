@@ -71,18 +71,20 @@ export interface FirebaseAuthProps {
 
 let firebaseUiDeletion = Promise.resolve();
 
-export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
-  unregisterAuthObserver = () => {};
-
-  firebaseUiWidget = null;
-
-  userSignedIn = null;
+class FirebaseAuth extends React.Component<FirebaseAuthProps> {
+  static displayName = 'FirebaseAuth';
 
   static defaultProps = {
     id: 'firebaseui_container',
     version: '3.4.1',
     lng: 'es_419',
   };
+
+  unregisterAuthObserver = () => {};
+
+  firebaseUiWidget = null;
+
+  userSignedIn = null;
 
   componentDidMount() {
     this.loadTranslatedVersions(this.props);
@@ -143,20 +145,20 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
   };
 
   loadTranslatedVersions = props => {
-    loadElement({
-      src: `https://www.gstatic.com/firebasejs/ui/${
-        props.version
-      }/firebase-ui-auth__${props.lng}.js`,
-      onLoad: this.handleLoad,
-      type: 'script',
-    });
+    const { version, lng } = props;
 
-    loadElement({
-      src: `https://www.gstatic.com/firebasejs/ui/${
-        props.version
-      }/firebase-ui-auth.css`,
-      type: 'link',
-    });
+    if (version && lng) {
+      loadElement({
+        src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth__${lng}.js`,
+        onLoad: this.handleLoad,
+        type: 'script',
+      });
+
+      loadElement({
+        src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth.css`,
+        type: 'link',
+      });
+    }
   };
 
   unmountWidget = () => {
@@ -168,3 +170,5 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
     return firebaseUiDeletion;
   };
 }
+
+export default FirebaseAuth;
