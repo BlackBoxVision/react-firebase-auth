@@ -38,16 +38,16 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
 
     loadElement({
       src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth__${lng}.js`,
-      onload: this.handleLoad,
+      onLoad: this.handleLoad,
       type: 'script',
     });
 
     loadElement({
       src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth.css`,
-      type: `link`,
+      type: 'link',
     });
   }
-  
+
   componentWillUnmount() {
     firebaseUiDeletion = firebaseUiDeletion.then(() => {
       this.unregisterAuthObserver();

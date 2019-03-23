@@ -1,16 +1,17 @@
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { addDecorator, addParameters, configure } from '@storybook/react';
+import { themes } from '@storybook/theming';
 
 addParameters({
   options: {
     brandTitle: '@blackbox-visiosn/react-firebase-auth',
-    //theme: themes.light,
+    theme: themes.light,
   },
 });
 
-addDecorator(withKnobs);
 addDecorator(withInfo({ inline: true, header: false }));
+addDecorator(withKnobs);
 
 const req = require.context('../stories', true, /.stories.tsx$/);
 function loadStories() {

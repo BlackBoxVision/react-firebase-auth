@@ -12,9 +12,11 @@ export const loadElement = (props: LoadElementProps) => {
     element.type = `text/css`;
     element.rel = 'stylesheet';
   } else {
-    element.href = props.src;
-    element.type = `text/css`;
-    element.rel = 'stylesheet';
+    element.src = props.src;
+    element.type = `text/javascript`;
+
+    element.async = true;
+    element.defer = true;
   }
 
   if (props.onLoad) {

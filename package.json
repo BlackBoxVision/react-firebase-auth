@@ -11,7 +11,7 @@
     "build": "npm run clean && pack build",
     "test": "jest --passWithNoTests -- -u",
     "start": "npm run storybook",
-    "storybook": "start-storybook -p 6010",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
@@ -97,7 +97,7 @@
     "@storybook/theming": "^5.0.3",
     "@types/react": "^16.8.8",
     "babel-eslint": "^10.0.1",
-    "core-js": "^3.0.0",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^5.15.3",
     "eslint-config-react-app": "^3.0.8",
     "eslint-import-resolver-lerna": "^1.1.0",
@@ -131,6 +131,6 @@
     ]
   },
   "dependencies": {
-    "dotenv-webpack": "^1.7.0"
+    "core-js": "^3.0.0"
   }
 }
