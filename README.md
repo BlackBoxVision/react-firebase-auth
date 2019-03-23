@@ -1,4 +1,4 @@
-# React Slot and Fill [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-firebase-auth.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-firebase-auth) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/react-firebase-auth/badge.svg)](https://snyk.io/test/github/blackboxvision/react-firebase-auth)
+# React Firebase Auth [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-firebase-auth.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-firebase-auth) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/react-firebase-auth/badge.svg)](https://snyk.io/test/github/blackboxvision/react-firebase-auth)
 
 🥳 Firebase Auth Module with support for Translations. Check out the [demo](https://blackboxvision.github.io/react-firebase-auth/).
 
