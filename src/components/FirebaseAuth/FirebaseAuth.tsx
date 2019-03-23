@@ -8,13 +8,64 @@ export interface ExtendedWindow extends Window {
 
 declare var window: ExtendedWindow;
 
+export type SupportedLanguages =
+  | 'ar'
+  | 'bg'
+  | 'ca'
+  | 'zh_cn'
+  | 'zh_tw'
+  | 'hr'
+  | 'cs'
+  | 'da'
+  | 'nl'
+  | 'en'
+  | 'en_gb'
+  | 'fa'
+  | 'fil'
+  | 'fi'
+  | 'fr'
+  | 'de'
+  | 'el'
+  | 'iw'
+  | 'hi'
+  | 'hu'
+  | 'id'
+  | 'it'
+  | 'ja'
+  | 'ko'
+  | 'lv'
+  | 'lt'
+  | 'no'
+  | 'pl'
+  | 'pt_br'
+  | 'pt_pt'
+  | 'ro'
+  | 'ru'
+  | 'sr'
+  | 'sk'
+  | 'sl'
+  | 'es'
+  | 'es_419'
+  | 'sv'
+  | 'th'
+  | 'tr'
+  | 'uk'
+  | 'vi';
+
 export interface FirebaseAuthProps {
+  /** Determines the id of the container */
   id?: string;
-  lng?: string;
+  /** Determines the translated version to load */
+  lng?: SupportedLanguages;
+  /** Determines the Firebase UI version to load */
   version?: string;
+  /** Determines the className to apply styles to the root container */
   className?: string;
+  /** Determines the config needed for Firebase UI */
   uiConfig: any;
+  /** Determines the callback to be passed when Firebase UI gets initialized */
   uiCallback?: any;
+  /** Determines the Firebase Auth instance to use in order to manage login */
   firebaseAuth: any;
 }
 
