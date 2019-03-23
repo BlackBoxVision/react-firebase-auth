@@ -85,18 +85,16 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
   };
 
   componentDidMount() {
-    const { lng, version } = this.props;
+    this.loadTranslatedVersions(this.props);
+  }
 
-    loadElement({
-      src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth__${lng}.js`,
-      onLoad: this.handleLoad,
-      type: 'script',
-    });
-
-    loadElement({
-      src: `https://www.gstatic.com/firebasejs/ui/${version}/firebase-ui-auth.css`,
-      type: 'link',
-    });
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.lng !== this.props.lng ||
+      prevProps.version !== this.props.version
+    ) {
+      this.loadTranslatedVersions(this.props);
+    }
   }
 
   componentWillUnmount() {
@@ -145,6 +143,23 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
 
       // Render the firebaseUi Widget.
       this.firebaseUiWidget.start(`#${id}`, uiConfig);
+    });
+  };
+
+  loadTranslatedVersions = props => {
+    loadElement({
+      src: `https://www.gstatic.com/firebasejs/ui/${
+        props.version
+      }/firebase-ui-auth__${props.lng}.js`,
+      onLoad: this.handleLoad,
+      type: 'script',
+    });
+
+    loadElement({
+      src: `https://www.gstatic.com/firebasejs/ui/${
+        props.version
+      }/firebase-ui-auth.css`,
+      type: 'link',
     });
   };
 }
