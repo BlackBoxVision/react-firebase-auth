@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/react-firebase-auth",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "React Firebase Auth module, with support for I18N ",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
