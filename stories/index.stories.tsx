@@ -1,13 +1,4 @@
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  FormControl,
-  Grid,
-  Grow,
-  MenuItem,
-  Select,
-} from '@material-ui/core';
+import { FormControl, Grid, MenuItem, Select } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { FirebaseAuth } from '../src';
@@ -16,7 +7,7 @@ interface ExtendedWindow extends Window {
   firebase: any;
 }
 
-interface AuthDialogProps {
+interface AuthModuleProps {
   languages: Array<any>;
 }
 
@@ -67,13 +58,12 @@ const getLanguages = () => [
   { value: 'ar', item: 'Arabic' },
 ];
 
-class AuthDialog extends React.Component<AuthDialogProps> {
+class AuthModule extends React.Component<AuthModuleProps> {
   static defaultProps = {
     languages: getLanguages(),
   };
 
   state = {
-    open: false,
     lng: 'es_419',
     uiConfig: null,
     firebase: null,
@@ -118,42 +108,29 @@ class AuthDialog extends React.Component<AuthDialogProps> {
     });
   }
 
-  handleOpen = () => this.setState({ open: true });
-
-  handleClose = () => this.setState({ open: false });
-
   handleChange = event => {
     this.setState({ lng: event.target.value });
   };
 
   render() {
-    const { lng, open, uiConfig, firebase } = this.state;
+    const { lng, uiConfig, firebase } = this.state;
     const { languages } = this.props;
 
     return (
       <>
         <Grid container>
-          <Grid md={2} item>
-            <Button
-              variant="contained"
-              onClick={open ? this.handleClose : this.handleOpen}
-            >
-              {open ? 'Close Auth Dialog' : 'Open Auth Dialog'}
-            </Button>
-          </Grid>
-          <Grid md={2} item>
+          <Grid md={12} item>
             <FormControl>
-              <Select value={this.state.lng} onChange={this.handleChange}>
+              <Select value={lng} onChange={this.handleChange}>
                 {languages.map(lang => (
-                  <MenuItem value={lang.value}>{lang.item}</MenuItem>
+                  <MenuItem key={lang.value} value={lang.value}>
+                    {lang.item}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
-        </Grid>
-        <Dialog open={open} onClose={this.handleClose}>
-          <DialogTitle id="dialog-title">Ingresar con: </DialogTitle>
-          <Grow>
+          <Grid md={12} item>
             {uiConfig && firebase && lng && (
               <FirebaseAuth
                 lng={lng}
@@ -162,11 +139,11 @@ class AuthDialog extends React.Component<AuthDialogProps> {
                 firebaseAuth={firebase.auth()}
               />
             )}
-          </Grow>
-        </Dialog>
+          </Grid>
+        </Grid>
       </>
     );
   }
 }
 
-storiesOf('Firebase Auth', module).add('Default', () => <AuthDialog />);
+storiesOf('Firebase Auth', module).add('Default', () => <AuthModule />);

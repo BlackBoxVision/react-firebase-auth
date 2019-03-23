@@ -93,17 +93,13 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
       prevProps.lng !== this.props.lng ||
       prevProps.version !== this.props.version
     ) {
+      this.unmountWidget();
       this.loadTranslatedVersions(this.props);
     }
   }
 
   componentWillUnmount() {
-    firebaseUiDeletion = firebaseUiDeletion.then(() => {
-      this.unregisterAuthObserver();
-      return this.firebaseUiWidget.delete();
-    });
-
-    return firebaseUiDeletion;
+    this.unmountWidget();
   }
 
   render() {
@@ -161,5 +157,14 @@ export default class FirebaseAuth extends React.Component<FirebaseAuthProps> {
       }/firebase-ui-auth.css`,
       type: 'link',
     });
+  };
+
+  unmountWidget = () => {
+    firebaseUiDeletion = firebaseUiDeletion.then(() => {
+      this.unregisterAuthObserver();
+      return this.firebaseUiWidget.delete();
+    });
+
+    return firebaseUiDeletion;
   };
 }
