@@ -102,15 +102,15 @@ ReactDOM.render(<AuthModule />, document.getElementById('root'));
 
 `FirebaseAuth` use the following props:
 
-| Properties   | Types    | Default Value        | Description                                                  |
-| ------------ | -------- | -------------------- | ------------------------------------------------------------ |
-| id           | string   | firebaseui_container | Determines wheter to render Firebase UI.                     |
-| lng          | string   | es_419               | Determines the specific lang to load.                        |
-| version      | string   | 3.4.1                | Determines the specific version to load.                     |
-| uiConfig     | object   | none                 | Determines the config for Firebase UI.                       |
-| firebaseAuth | object   | none                 | Determines the firebase auth instance.                       |
-| className    | string   | none                 | Determines className to apply to the container.              |
-| uiCallback   | function | none                 | Determines the callback to run when Firebase UI is available |
+| Properties   | Types    | Default Value        | Description                                                                                                                                                      |
+| ------------ | -------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id           | string   | firebaseui_container | Determines wheter to render Firebase UI.                                                                                                                         |
+| lng          | string   | es_419               | Determines the specific lang to load. [Refer to Supported Languages for more info](https://github.com/BlackBoxVision/react-firebase-auth/blob/master/LANGUAGES). |
+| version      | string   | 3.4.1                | Determines the specific version to load.                                                                                                                         |
+| uiConfig     | object   | none                 | Determines the config for Firebase UI.                                                                                                                           |
+| firebaseAuth | object   | none                 | Determines the firebase auth instance.                                                                                                                           |
+| className    | string   | none                 | Determines className to apply to the container.                                                                                                                  |
+| uiCallback   | function | none                 | Determines the callback to run when Firebase UI is available                                                                                                     |
 
 ## Issues
 
